@@ -5,6 +5,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
 	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+	footer {
+  		background-color: #478adf;
+		position: absolute;
+		bottom: 0;
+		width: 30%;
+		height: 60px;
+		color: white;
+	}
+	</style>
 </head>
 <body>
 	<div>
@@ -31,6 +41,11 @@
 		</form>
 	    
 	</div>
+	<footer>
+	  	Fuente: https://github.com/gumiel/libreria_captcha_codeigniter<br>
+	  	Desarrolado en: Codeigniter<br>
+	  	Tipo: Libreria<br>
+	</footer>
 	<script>
 		var refreshButton = document.querySelector(".refresh-captcha");
 		refreshButton.onclick = function() {
