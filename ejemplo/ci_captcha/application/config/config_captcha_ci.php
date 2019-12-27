@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+$config['activar_captcha'] = TRUE; 
 $config['permitted_chars'] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; 
 $config['fonts'] = [
 					dirname(__DIR__).'\libraries\captcha_ci\fonts\Acme.ttf', 

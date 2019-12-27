@@ -70,7 +70,15 @@ class Captcha_ci
 			$letter_space = 170/$string_length;
 			$initial = 15;
 
-			imagettftext($image, 20, rand(-15, 15), $initial + $i*$letter_space, rand(20, 40), $textcolors[rand(0, 1)], $fonts[array_rand($fonts)], $this->captcha_string[$i]);
+			imagettftext($image, 
+				20, 
+				rand(-15, 15), 
+				$initial + $i*$letter_space, 
+				rand(20, 40), 
+				$textcolors[rand(0, 1)], 
+				$fonts[array_rand($fonts)], 
+				($this->captcha_string!='')?$this->captcha_string[$i]:''
+			);
 		}
 		header('Content-type: image/png');
 		imagepng($image);		 
@@ -80,6 +88,8 @@ class Captcha_ci
 
 	public function generarString($input, $strength = 5) 
 	{
+		$this->ci->config->load('config_captcha_ci');
+		
 	    $input_length = strlen($input);
 	    $random_string = '';
 	    for($i = 0; $i < $strength; $i++) {
@@ -87,7 +97,7 @@ class Captcha_ci
 	        $random_string .= $random_character;
 	    }
 	  
-	    return $random_string;
+	    return ($this->ci->config->item('activar_captcha'))? $random_string: '';
 	}
 
 	public function obtenerString()
